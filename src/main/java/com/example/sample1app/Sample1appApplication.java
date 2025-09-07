@@ -10,10 +10,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class Sample1appApplication {
 
-	String[][] data = {
-		{"noname", "no email address", "0"},
-		{"taro", "taro@yamada", "39"},
-		{"hanako", "hanako@flower", "28"}
+	DataObject[] data = {
+		new DataObject("noname", "no email address", 0),
+		new DataObject("taro", "taro@yamada", 39),
+		new DataObject("hanako", "hanako@flower", 28)
 	};
 
 	public static void main(String[] args) {
@@ -21,10 +21,45 @@ public class Sample1appApplication {
 	}
 
 	@RequestMapping("/{num}")
-	public String index(@PathVariable("num") int num) {		// PathVariableのvalue属性を省略するとエラーになった
+	public DataObject index(@PathVariable("num") int num) {		// PathVariableのvalue属性を省略するとエラーになった
 		int n = num < 0 ? 0 : num >= data.length ? 0 : num;
-		String[] item = data[n];
-		String msg = "ID=%s. {name: %s, mail: %s, age: %s}";
-		return String.format(msg, num, item[0], item[1], item[2]);
+		return data[n];
+	}
+
+	class DataObject {
+		private String name;
+		private String mail;
+		private int age;
+
+		public DataObject(String name, String mail, int age) {
+			this.name = name;
+			this.mail = mail;
+			this.age = age;
+		}
+
+		public String getName() {
+			return name;
+		}
+
+		public void setName(String name) {
+			this.name = name;
+		}
+
+		public String getMail() {
+			return mail;
+		}
+
+		public void setMail(String mail) {
+			this.mail = mail;
+		}
+
+		public int getAge() {
+			return age;
+		}
+
+		public void setAge(int age) {
+			this.age = age;
+		}
+
 	}
 }
