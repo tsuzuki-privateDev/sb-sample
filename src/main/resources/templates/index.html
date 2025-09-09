@@ -12,53 +12,9 @@
     <title>top page</title>
   </head>
   <body class="container">
-    <h1 class="display-4 mb-4">Hello page</h1>
-    <p th:text="${msg}"></p>
-    <div class="h6 alert alert-primary">
-      <form method="post" action="/">
-        <div class="my-2">
-          <input type="checkbox" class="form-check-input" name="check1" />
-          <label for="check1" class="frm-check-label">チェック</label>
-        </div>
-        <div class="my-2">
-          <input
-            type="radio"
-            class="form-check-input"
-            name="radio1"
-            value="male"
-          />
-          <label for="radioA" class="frm-check-label">男性</label>
-        </div>
-        <div class="my-2">
-          <input
-            type="radio"
-            class="form-check-input"
-            name="radio1"
-            value="female"
-          />
-          <label for="radioB" class="frm-check-label">女性</label>
-        </div>
-        <div class="my-2">
-          <select name="select1" class="form-select" size="1">
-            <option value="Windows">Windows</option>
-            <option value="Mac">Mac</option>
-            <option value="Linux">Linux</option>
-          </select>
-        </div>
-        <div class="my-2">
-          <select
-            name="select2"
-            class="form-select"
-            size="4"
-            multiple="multiple"
-          >
-            <option value="Android">Android</option>
-            <option value="iphone">iPhone</option>
-            <option value="winphone">Windows Phone</option>
-          </select>
-        </div>
-        <input type="submit" class="butn butn-primary" value="Click" />
-      </form>
+    <h1 class="display-4 mb-4">Hello Page</h1>
+    <div class="alert alert-primary">
+      <p th:text="${msg}"></p>
     </div>
   </body>
 </html>
