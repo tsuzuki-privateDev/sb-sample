@@ -1,26 +1,19 @@
 package com.example.sample1app;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class HelloController {
-    @GetMapping("/")
+    private boolean flag = false;
+
+    @RequestMapping("/")
     public ModelAndView index(ModelAndView mav) {
+        flag = !flag;
         mav.setViewName("index");
-        mav.addObject("msg", "HelloController/indexのページです。");
+        mav.addObject("flag", flag);
+        mav.addObject("msg", "サンプルのメッセージです。");
         return mav;
-    }
-
-    @RequestMapping("/other")
-    public String other() {
-        return "redirect:/";
-    }
-
-    @RequestMapping("/home")
-    public String home() {
-        return "forward:/";
     }
 }
