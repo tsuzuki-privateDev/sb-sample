@@ -21,8 +21,8 @@ public class HelloController {
 
         Lambda fn = new Lambda() {
             public void execute (Fragment frag, Writer out) throws IOException {
-                out.write("<div class=\"alert alert-primary\">");
-                frag.execute(out);
+                out.write("<div class=\"alert alert-primary\">");   // out.writeで、引数をそのままWebページに出力する
+                frag.execute(out);      // フラグメントの内容をoutに出力する
                 out.write("</div>");
             }
         };
