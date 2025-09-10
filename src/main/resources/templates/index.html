@@ -13,10 +13,11 @@
   </head>
   <body class="container">
     <h1 class="display-4 mb-4">Hello Page</h1>
-    <hr />
-    <pre>{{msg}}</pre>
-    <hr />
-    <pre>{{{msg}}}</pre>
-    <hr />
+    <h6>※flagの状態{{flag}}</h6>
+    {{#flag}}
+    <p class="alert alert-primary">{{msg}}</p>
+    {{/flag}} {{^flag}}
+    <p>no message...</p>
+    {{/flag}}
   </body>
 </html>
